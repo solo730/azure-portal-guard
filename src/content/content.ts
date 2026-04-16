@@ -353,7 +353,7 @@ function renderNavigateView(panel: HTMLElement): void {
       const id  = `apg-nav-${svc.label.replace(/\s+/g, "-").toLowerCase()}`;
       const btn = panel.querySelector<HTMLButtonElement>(`#${id}`);
       if (!btn) return;
-      btn.onclick = () => window.open(svc.url, "_blank");
+      btn.onclick = () => { window.location.href = svc.url; };
     });
   });
 

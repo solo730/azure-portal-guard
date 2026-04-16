@@ -24,7 +24,7 @@ var e=`https://lemonsqueezy-license-worker.cloudleakguard.workers.dev`,t=`azure-
         <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:5px;">
           ${t}
         </div>
-      </div>`}).join(``),l.forEach(t=>{t.services.forEach(t=>{let n=`apg-nav-${t.label.replace(/\s+/g,`-`).toLowerCase()}`,r=e.querySelector(`#${n}`);r&&(r.onclick=()=>window.open(t.url,`_blank`))})}),d(e)}function v(e){let t=e.querySelector(`#apg-upgrade-content`);if(t){if(o.isPro){t.innerHTML=`
+      </div>`}).join(``),l.forEach(t=>{t.services.forEach(t=>{let n=`apg-nav-${t.label.replace(/\s+/g,`-`).toLowerCase()}`,r=e.querySelector(`#${n}`);r&&(r.onclick=()=>{window.location.href=t.url})})}),d(e)}function v(e){let t=e.querySelector(`#apg-upgrade-content`);if(t){if(o.isPro){t.innerHTML=`
       <div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
           <div style="font-weight:900; font-size:15px;">Azure Portal Guard</div>

@@ -180,7 +180,18 @@ const NAV_SERVICES = [
 // ─── Theme ───────────────────────────────────────────────────────────────────
 
 function resolveTheme(): "dark" | "light" {
-  return window.matchMedia?.("(prefers-color-scheme: dark)")?.matches ? "dark" : "light";
+  // Azure Portal uses fxs-mode-dark / fxs-mode-light on the html element
+  const html = document.documentElement;
+  if (html.classList.contains("fxs-mode-dark")) return "dark";
+  if (html.classList.contains("fxs-mode-light")) return "light";
+  // Fallback: check background brightness
+  const bg = window.getComputedStyle(document.body).backgroundColor;
+  const match = bg.match(/\d+/g);
+  if (match && match.length >= 3) {
+    const brightness = (parseInt(match[0]) + parseInt(match[1]) + parseInt(match[2])) / 3;
+    return brightness < 128 ? "dark" : "light";
+  }
+  return "light";
 }
 
 function applyTheme(panel: HTMLElement): void {

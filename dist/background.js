@@ -1,0 +1,1 @@
+chrome.action.onClicked.addListener(e=>{e.id&&chrome.scripting.executeScript({target:{tabId:e.id},func:()=>{let e=document.getElementById(`azure-portal-guard-panel`);if(e)e.remove();else{let e=document.createElement(`script`);e.src=chrome.runtime.getURL(`content.js`),document.head.appendChild(e)}}})});

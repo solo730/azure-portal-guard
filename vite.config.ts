@@ -6,7 +6,7 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        content: resolve(__dirname, "src/content/content.ts"),
+        content:    resolve(__dirname, "src/content/azure.ts"),
         background: resolve(__dirname, "src/background/background.ts"),
       },
       output: {
